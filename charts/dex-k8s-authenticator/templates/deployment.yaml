@@ -78,7 +78,11 @@ spec:
       volumes:
       - name: config
         configMap:
+{{- if .Values.configMapName }}
+          name: {{ .Values.configMapName }}
+{{- else }}
           name: {{ template "dex-k8s-authenticator.fullname" . }}
+{{- end }}
 {{- if .Values.caCerts.enabled }}
 {{- range .Values.caCerts.secrets }}
       - name: {{ template "dex-k8s-authenticator.fullname" $ }}-{{ .name }}

@@ -11,6 +11,8 @@ image:
   tag: 1.4.0
   pullPolicy: Always
 
+# For custom configmap name
+# configMapName: 
 dexK8sAuthenticator:
   port: 5555
   debug: false
