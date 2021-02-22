@@ -57,6 +57,7 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         # command: ["/usr/local/bin/dex", "serve", "/etc/dex/config.yaml"]
+        command: ["/entrypoint.sh"]
         args: ["/usr/local/bin/dex", "serve", "/etc/dex/config.yaml"]
         env:
         {{- $envSecretName  := .Values.envSecretName -}}
