@@ -56,7 +56,8 @@ spec:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy }}
-        command: ["/usr/local/bin/dex", "serve", "/etc/dex/config.yaml"]
+        # command: ["/usr/local/bin/dex", "serve", "/etc/dex/config.yaml"]
+        args: ["/usr/local/bin/dex", "serve", "/etc/dex/config.yaml"]
         env:
         {{- $envSecretName  := .Values.envSecretName -}}
         {{- range $key, $value := .Values.envSecrets }}
